@@ -2,7 +2,8 @@ const exp = require('constants');
 var express = require('express');
 
 var app = express();
-var server = app.listen(process.env.PORT || 3000);
+const port = process.env.PORT || 3000;
+var server = app.listen(port);
 
 app.use(express.static('public'));
 
