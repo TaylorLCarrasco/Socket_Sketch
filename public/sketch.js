@@ -2,7 +2,8 @@ var socket;
 
 function setup()
 {
-    createCanvas(window.innerWidth, window.innerHeight);
+    let cnv = createCanvas(window.innerWidth, window.innerHeight);
+    cnv.position(0, 0);
     background(51);
     
     socket = io.connect('https://socket-sketch-app.herokuapp.com/');
