@@ -2,7 +2,7 @@ var socket;
 
 function setup()
 {
-    let cnv = createCanvas(1080, 1920);
+    let cnv = createCanvas(540, 960);
     cnv.position(0, 0);rect(30, 20, 55, 55);
     background('white');
     //border
@@ -36,5 +36,5 @@ function draw(position)
 {
     noStroke();
     fill(255, 0, 100);
-    ellipse(position.x, position.y, 10, 10);
+    ellipse(position.x, position.y, 4, 4);
 }
