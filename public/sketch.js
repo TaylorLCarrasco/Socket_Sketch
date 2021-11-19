@@ -8,7 +8,7 @@ function setup()
     //border
     stroke('black');
     strokeWeight(1);
-    rect(0, 0, 1080, 1920);
+    rect(0, 0, 540, 960);
     
     socket = io.connect('https://socket-sketch-app.herokuapp.com/');
     socket.on('mouse', newDrawing);
