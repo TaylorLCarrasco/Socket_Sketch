@@ -2,13 +2,13 @@ var socket;
 
 function setup()
 {
-    let cnv = createCanvas(window.innerWidth, window.innerHeight);
+    let cnv = createCanvas(1080, 1920);
     cnv.position(0, 0);rect(30, 20, 55, 55);
     background('white');
     //border
     stroke('black');
     strokeWeight(1);
-    rect(0, 0, window.innerWidth, window.innerHeight);
+    rect(0, 0, 1080, 1920);
     
     socket = io.connect('https://socket-sketch-app.herokuapp.com/');
     socket.on('mouse', newDrawing);
