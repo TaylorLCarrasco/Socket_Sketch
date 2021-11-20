@@ -58,7 +58,7 @@ function saveDrawing()
 
     //storageRef.put(canvas.toDataURL());
 
-    firebase.storage().ref().put(dataURItoBlob(canvas.toDataURL()));
+    firebase.storage('//socket-sketch-7355b.appspot.com').ref('canvas').put(dataURItoBlob(canvas.toDataURL()));
 }
 
 function newDrawing(data)
