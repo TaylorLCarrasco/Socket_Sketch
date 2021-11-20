@@ -16,6 +16,15 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "firebase": "^9.5.0",
     "socket.io": "^4.4.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaylorLCarrasco/Socket_Sketch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TaylorLCarrasco/Socket_Sketch/issues"
+  },
+  "homepage": "https://github.com/TaylorLCarrasco/Socket_Sketch#readme"
 }

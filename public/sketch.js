@@ -30,6 +30,15 @@ function setup()
     socket.on('clear', clearCanvas);
 }
 
+function saveDrawing()
+{
+    //firebase.storage().ref('canvas').child('file_name').putString(canvas.toDataURL(), 'base64', { contentType:'image/ jpg'});
+
+    var timestamp = Number(new Date());
+    var storageRef = firebase.storage().ref(timestamp.toString());
+    storageRef.put(canvas.toDataURL());
+}
+
 function newDrawing(data)
 {
     draw(data);
@@ -59,6 +68,8 @@ function draw(position)
 
     dataLocal.x0 = position.x1;
     dataLocal.y0 = position.y1;
+
+    saveDrawing();
 }
 
 function clearCanvas()
