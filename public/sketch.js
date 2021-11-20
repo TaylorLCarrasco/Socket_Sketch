@@ -1,6 +1,14 @@
 var socket;
 var dataLocal;
 
+dataLocal = 
+{
+    x0: 0,
+    y0: 0,
+    x1: 0,
+    y1: 0
+}
+
 function setup()
 {
     let cnv = createCanvas(542, 962);
@@ -29,9 +37,7 @@ function mousePressed() {
 
 function mouseDragged()
 {
-    console.log('Sending: '+ mouseX + ', ' + mouseY)
-
-    var dataLocal = {
+    dataLocal = {
         x1: mouseX,
         y1: mouseY
     }
