@@ -9,6 +9,12 @@ dataLocal =
     y1: 0
 }
 
+var el = document.getElementById("clickMe");
+if (el.addEventListener)
+    el.addEventListener("click", doFunction, false);
+else if (el.attachEvent)
+    el.attachEvent('onclick', doFunction);
+
 function setup()
 {
     let cnv = createCanvas(542, 962);
