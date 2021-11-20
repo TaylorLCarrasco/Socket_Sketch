@@ -32,11 +32,28 @@ function setup()
 
 function saveDrawing()
 {
-    //firebase.storage().ref('canvas').child('file_name').putString(canvas.toDataURL(), 'base64', { contentType:'image/ jpg'});
+    //var timestamp = Number(new Date());
+    //var storageRef = firebase.storage().ref(timestamp.toString());
+    var storageRef = firebase.storage().ref();
 
-    var timestamp = Number(new Date());
-    var storageRef = firebase.storage().ref(timestamp.toString());
-    storageRef.put(canvas.toDataURL());
+    canvas.toBlob(function (blob) {
+        var image = new Image();
+        image.src = blob;
+        var uploadTask = storageRef.child('images/' + "canvas").put(blob);
+    });
+
+    uploadTask.on('state_changed', function (snapshot) {
+        // Observe state change events such as progress, pause, and resume
+        // See below for more detail
+    }, function (error) {
+        // Handle unsuccessful uploads
+    }, function () {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        var downloadURL = uploadTask.snapshot.downloadURL;
+    });
+
+    //storageRef.put(canvas.toDataURL());
 }
 
 function newDrawing(data)
