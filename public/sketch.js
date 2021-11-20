@@ -22,7 +22,7 @@ function newDrawing(data)
 function mousePressed() {
     noStroke();
     fill(255, 0, 0);
-    ellipse(position.x, position.y, 10, 10);
+    ellipse(mouseX, mouseY, 20, 20);
 
     //if (overBox) {
     //    locked = true;
