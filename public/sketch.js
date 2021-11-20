@@ -38,17 +38,3 @@ function draw(position)
     fill(255, 0, 100);
     ellipse(position.x, position.y, 4, 4);
 }
-
-function drawingboard() {
-    var imageBoard = new DrawingBoard.Board('div', {
-        controls: true,
-        color: '#000',
-        webStorage: false,
-        controls: [
-            'Color',
-            { Size: { type: "range" } },
-            { Navigation: { back: true, forward: true } },
-            'DrawingMode'
-        ],
-    });
-}
