@@ -60,17 +60,17 @@ function saveDrawing()
 
     //firebase.storage('images').ref('canvas').put(dataURItoBlob(canvas.toDataURL()));
 
-    const uploadFile = async = (blob) => 
-    {
-        const ref = await firebase
-            .storage()
-            .ref('images/canvas')
-            .put(dataURItoBlob(canvas.toDataURL()));
-
-        const url = ref.getDownloadURL();
-
-        //return url; // <-- Url that returns your uploaded image
-    }
+    //const uploadFile = async = (blob) => 
+    //{
+    //    const ref = await firebase
+    //        .storage()
+    //        .ref('images/canvas')
+    //        .put(dataURItoBlob(canvas.toDataURL()));
+    //
+    //    const url = ref.getDownloadURL();
+    //
+    //    //return url; // <-- Url that returns your uploaded image
+    //}
 }
 
 function newDrawing(data)
@@ -103,7 +103,7 @@ function draw(position)
     dataLocal.x0 = position.x1;
     dataLocal.y0 = position.y1;
 
-    //saveDrawing();
+    saveDrawing();
 }
 
 function clearCanvas()
