@@ -1,4 +1,5 @@
 var socket;
+var lineStart;
 
 function setup()
 {
@@ -20,18 +21,10 @@ function newDrawing(data)
 }
 
 function mousePressed() {
-    noStroke();
-    fill(255, 0, 0);
-    ellipse(mouseX, mouseY, 20, 20);
-
-    //if (overBox) {
-    //    locked = true;
-    //    fill(255, 255, 255);
-    //} else {
-    //    locked = false;
-    //}
-    //xOffset = mouseX - bx;
-    //yOffset = mouseY - by;
+    lineStart = {
+        x: mouseX,
+        y: mouseY
+    }
 }
 
 function mouseDragged()
@@ -49,7 +42,7 @@ function mouseDragged()
 
 function draw(position)
 {
-    noStroke();
-    fill(255, 0, 100);
-    ellipse(position.x, position.y, 4, 4);
+    fill(0, 0, 0); 
+    strokeWeight(4)
+    line(lineStart.x, lineStart.y, position.x, position.y);
 }
