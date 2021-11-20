@@ -5,7 +5,41 @@
         <script src="libraries/p5.js" type="text/javascript"></script>
         <script src="sketch.js" type="text/javascript"></script>
         <script src="/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" href="drawingboard.css"/>
     </head>
+    
+    <style>
+        #div {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+    </style>
+
     <body style="background-color:#C4D4DE;">
+        <div id="div"></div>
     </body>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawingboard.js/0.4.6/drawingboard.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var imageBoard = new DrawingBoard.Board('div', {
+                controls: true,
+                color: '#000',
+                webStorage: false,
+                controls: [
+                    'Color',
+                    { Size: { type: "range" } },
+                    { Navigation: { back: true, forward: true } },
+                    'DrawingMode'
+                ],
+            });
+        })
+    </script>
+
 </html>
