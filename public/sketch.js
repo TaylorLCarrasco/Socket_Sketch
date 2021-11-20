@@ -1,5 +1,5 @@
 var socket;
-var lineStart;
+var dataLocal;
 
 function setup()
 {
@@ -21,7 +21,7 @@ function newDrawing(data)
 }
 
 function mousePressed() {
-    lineStart = {
+    dataLocal = {
         x0: mouseX,
         y0: mouseY
     }
@@ -31,22 +31,22 @@ function mouseDragged()
 {
     console.log('Sending: '+ mouseX + ', ' + mouseY)
 
-    var data = {
-        x0: mouseX,
-        y0: mouseY
+    var dataLocal = {
+        x1: mouseX,
+        y1: mouseY
     }
-    socket.emit('mouse', data);
+    socket.emit('mouse', dataLocal);
 
-    draw(data);
+    draw(dataLocal);
 }
 
 function draw(position)
 {
     fill(0, 0, 0); 
     strokeWeight(4)
-    line(lineStart.x, lineStart.y, position.x0, position.y0);
-    lineStart = {
-        x0: position.x,
-        y0: position.y
+    line(position.x0, position.y0, position.x1, position.y1);
+    dataLocal = {
+        x0: position.x1,
+        y0: position.y1
     }
 }
