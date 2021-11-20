@@ -30,30 +30,35 @@ function setup()
     socket.on('clear', clearCanvas);
 }
 
+function dataURItoBlob(dataURI) {
+    // convert base64 to raw binary data held in a string
+    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+    var byteString = atob(dataURI.split(',')[1]);
+
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+    // write the bytes of the string to an ArrayBuffer
+    var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([ab], { type: mimeString });
+}
+
 function saveDrawing()
 {
     //var timestamp = Number(new Date());
     //var storageRef = firebase.storage().ref(timestamp.toString());
-    var storageRef = firebase.storage().ref();
+    //var storageRef = firebase.storage().ref();
 
-    canvas.toBlob(function (blob) {
-        var image = new Image();
-        image.src = blob;
-        var uploadTask = storageRef.child('images/' + "canvas").put(blob);
-    });
-
-    uploadTask.on('state_changed', function (snapshot) {
-        // Observe state change events such as progress, pause, and resume
-        // See below for more detail
-    }, function (error) {
-        // Handle unsuccessful uploads
-    }, function () {
-        // Handle successful uploads on complete
-        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        var downloadURL = uploadTask.snapshot.downloadURL;
-    });
+    //dataURItoBlob(canvas.toDataURL());
 
     //storageRef.put(canvas.toDataURL());
+
+    firebase.storage().ref().put(dataURItoBlob(canvas.toDataURL()));
 }
 
 function newDrawing(data)
