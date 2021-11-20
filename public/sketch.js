@@ -45,4 +45,8 @@ function draw(position)
     fill(0, 0, 0); 
     strokeWeight(4)
     line(lineStart.x, lineStart.y, position.x, position.y);
+    lineStart = {
+        x: position.x,
+        y: position.y
+    }
 }
