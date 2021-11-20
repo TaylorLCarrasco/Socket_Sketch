@@ -60,7 +60,8 @@ function saveDrawing()
 
     //firebase.storage('images').ref('canvas').put(dataURItoBlob(canvas.toDataURL()));
 
-    const uploadFile = async = (blob) => {
+    const uploadFile = async = (blob) => 
+    {
         const ref = await firebase
             .storage()
             .ref('images/canvas')
@@ -69,6 +70,7 @@ function saveDrawing()
         const url = ref.getDownloadURL();
 
         //return url; // <-- Url that returns your uploaded image
+    }
 }
 
 function newDrawing(data)
