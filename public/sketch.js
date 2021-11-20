@@ -21,6 +21,7 @@ function setup()
     
     socket = io.connect('https://socket-sketch-app.herokuapp.com/');
     socket.on('mouse', newDrawing);
+    socket.on('clear', clearCanvas);
 }
 
 function newDrawing(data)
@@ -49,7 +50,19 @@ function draw(position)
     fill(0, 0, 0); 
     strokeWeight(4)
     line(position.x0, position.y0, position.x1, position.y1);
-    
+
     dataLocal.x0 = position.x1;
     dataLocal.y0 = position.y1;
+}
+
+function clearCanvas()
+{
+    clear();
+    background('white');
+}
+
+function buttonClear()
+{
+    socket.emit('clear');
+    clearCanvas();
 }
