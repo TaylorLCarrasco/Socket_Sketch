@@ -20,4 +20,11 @@ function newConnection(socket)
     {
         socket.broadcast.emit('mouse', data);
     }
+
+
+    socket.on('clear', clearMsg);
+
+    function clearMsg() {
+        socket.broadcast.emit('clear');
+    }
 }
