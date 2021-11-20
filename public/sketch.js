@@ -28,19 +28,17 @@ function newDrawing(data)
     draw(data);
 }
 
-function mousePressed() {
-    dataLocal = {
-        x0: mouseX,
-        y0: mouseY
-    }
+function mousePressed() 
+{
+    dataLocal.x0 = mouseX;
+    dataLocal.y0 = mouseY;
 }
 
 function mouseDragged()
 {
-    dataLocal = {
-        x1: mouseX,
-        y1: mouseY
-    }
+    dataLocal.x1 = mouseX;
+    dataLocal.y1 = mouseY;
+
     socket.emit('mouse', dataLocal);
 
     draw(dataLocal);
@@ -51,8 +49,7 @@ function draw(position)
     fill(0, 0, 0); 
     strokeWeight(4)
     line(position.x0, position.y0, position.x1, position.y1);
-    dataLocal = {
-        x0: position.x1,
-        y0: position.y1
-    }
+    
+    dataLocal.x0 = position.x1;
+    dataLocal.y0 = position.y1;
 }
