@@ -50,6 +50,18 @@ function dataURItoBlob(dataURI) {
 
 function saveDrawing()
 {
+    import { getStorage, ref, uploadBytes } from "firebase/storage";
+
+    const storage = getStorage();
+    const storageRef = ref(storage, 'some-child');
+
+    // 'file' comes from the Blob or File API
+    uploadBytes(storageRef, dataURItoBlob(canvas.toDataURL())).then((snapshot) => {
+        console.log('Uploaded a blob or file!');
+    });
+
+
+    
     //var timestamp = Number(new Date());
     //var storageRef = firebase.storage().ref(timestamp.toString());
     //var storageRef = firebase.storage().ref();
