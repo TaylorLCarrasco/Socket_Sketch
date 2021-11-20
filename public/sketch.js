@@ -63,6 +63,7 @@ function draw(position)
 
 function clearCanvas()
 {
+    strokeWeight(0)
     fill('white');
     rect(1, 1, 540, 960);
 }
