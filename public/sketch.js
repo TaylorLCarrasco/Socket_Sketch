@@ -1,5 +1,3 @@
-
-
 var socket;
 var dataLocal;
 
@@ -31,7 +29,7 @@ function setup()
     socket.on('mouse', newDrawing);
     socket.on('clear', clearCanvas);
 
-    import { initializeApp } from 'firebase/app';
+    import { initializeApp } from 'firebase-app';
 
     const firebaseApp = initializeApp({
         apiKey: "AIzaSyC4cQmnCHXvkDLE6QISv4RSv59EDQnZiCc",
