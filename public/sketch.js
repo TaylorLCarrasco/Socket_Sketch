@@ -1,5 +1,7 @@
+import { initializeApp } from "firebase/app";
 var socket;
 var dataLocal;
+
 
 dataLocal = 
 {
@@ -28,61 +30,35 @@ function setup()
     socket = io.connect('https://socket-sketch-app.herokuapp.com/');
     socket.on('mouse', newDrawing);
     socket.on('clear', clearCanvas);
-}
 
-function dataURItoBlob(dataURI) {
-    // convert base64 to raw binary data held in a string
-    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
-    var byteString = atob(dataURI.split(',')[1]);
+    
+    const config = {
+        apiKey: "AIzaSyC4cQmnCHXvkDLE6QISv4RSv59EDQnZiCc",
+        authDomain: "socket-sketch-7355b.firebaseapp.com",
+        databaseURL: "https://socket-sketch-7355b-default-rtdb.firebaseio.com",
+        projectId: "socket-sketch-7355b",
+        storageBucket: "socket-sketch-7355b.appspot.com",
+        messagingSenderId: "1017385164549",
+        appId: "1:1017385164549:web:4e28c02faecadefc77616c"
+    };
 
-    // separate out the mime component
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-    // write the bytes of the string to an ArrayBuffer
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-    }
-
-    return new Blob([ab], { type: mimeString });
+    firebase.initializeApp(config);
+    database = firebase.database();
+    
 }
 
 function saveDrawing()
 {
-    import { getStorage, ref, uploadBytes } from "firebase/storage";
-
-    const storage = getStorage();
-    const storageRef = ref(storage, 'some-child');
-
-    // 'file' comes from the Blob or File API
-    uploadBytes(storageRef, dataURItoBlob(canvas.toDataURL())).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
-    });
-
-
-    
-    //var timestamp = Number(new Date());
-    //var storageRef = firebase.storage().ref(timestamp.toString());
-    //var storageRef = firebase.storage().ref();
-
-    //dataURItoBlob(canvas.toDataURL());
-
-    //storageRef.put(canvas.toDataURL());
-
-    //firebase.storage('images').ref('canvas').put(dataURItoBlob(canvas.toDataURL()));
-
-    //const uploadFile = async = (blob) => 
-    //{
-    //    const ref = await firebase
-    //        .storage()
-    //        .ref('images/canvas')
-    //        .put(dataURItoBlob(canvas.toDataURL()));
-    //
-    //    const url = ref.getDownloadURL();
-    //
-    //    //return url; // <-- Url that returns your uploaded image
-    //}
+    var ref = database.ref('drawings');
+    var data = {
+        name: "Dan",
+        drawing: drawing
+    }
+    var result = ref.push(data, dataSent);
+    console.log(result.key)
+    function dataSent(status){
+        console.log(status)
+    }
 }
 
 function newDrawing(data)
