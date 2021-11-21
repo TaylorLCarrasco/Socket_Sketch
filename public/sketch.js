@@ -1,8 +1,7 @@
-
+import { initializeApp } from "firebase/app";
 var socket;
 var dataLocal;
 var database;
-
 
 dataLocal = 
 {
@@ -32,7 +31,7 @@ function setup()
     socket.on('mouse', newDrawing);
     socket.on('clear', clearCanvas);
     
-    var config = {
+    var firebaseConfig  = {
         apiKey: "AIzaSyC4cQmnCHXvkDLE6QISv4RSv59EDQnZiCc",
         authDomain: "socket-sketch-7355b.firebaseapp.com",
         databaseURL: "https://socket-sketch-7355b-default-rtdb.firebaseio.com",
@@ -41,7 +40,7 @@ function setup()
         messagingSenderId: "1017385164549",
         appId: "1:1017385164549:web:4e28c02faecadefc77616c"
     };
-    var firebase = initializeApp(config);
+    const app = initializeApp(firebaseConfig);
     //database = firebase.database();
     
 }
