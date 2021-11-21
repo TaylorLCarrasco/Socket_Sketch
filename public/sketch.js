@@ -31,7 +31,6 @@ function setup()
     socket.on('mouse', newDrawing);
     socket.on('clear', clearCanvas);
 
-    FirebaseApp.initializeApp();
 
     //import { initializeApp } from "firebase/app";
 
