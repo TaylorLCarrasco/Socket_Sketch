@@ -33,7 +33,7 @@ function setup()
     //database = app.database();
     
 }
-/*
+
 function upload()
 {
     var files = [];
@@ -79,7 +79,7 @@ function upload()
         }
     });
 }
-*/
+
 
 function saveDrawing()
 {
