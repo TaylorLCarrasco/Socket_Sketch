@@ -30,7 +30,7 @@ function setup()
     socket.on('mouse', newDrawing);
     socket.on('clear', clearCanvas);
         
-    //database = app.database();
+    database = app.database();
     
 }
 
