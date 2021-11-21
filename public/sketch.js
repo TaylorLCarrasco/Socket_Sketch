@@ -1,4 +1,3 @@
-import { initializeApp } from "firebase/app";
 var socket;
 var dataLocal;
 var database;
@@ -30,6 +29,8 @@ function setup()
     socket = io.connect('https://socket-sketch-app.herokuapp.com/');
     socket.on('mouse', newDrawing);
     socket.on('clear', clearCanvas);
+    
+    import { initializeApp } from "firebase/app";
     
     var firebaseConfig  = {
         apiKey: "AIzaSyC4cQmnCHXvkDLE6QISv4RSv59EDQnZiCc",
