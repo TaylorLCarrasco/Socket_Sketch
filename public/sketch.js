@@ -42,7 +42,7 @@ function setup()
 
     firebase.initializeApp(firebaseConfig);
         
-    database = firebase.database();
+    //database = firebase.database();
     
 }
 
