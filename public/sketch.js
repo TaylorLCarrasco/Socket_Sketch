@@ -53,7 +53,7 @@ function saveDrawing()
         name: "Dan",
         drawing: "drawing"
     }
-    var result = ref.push(data, dataSent);
+    ref.push(data, dataSent);
     
 }
 
