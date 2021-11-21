@@ -1,4 +1,4 @@
-import firebase from 'firebase/firebase';
+//import firebase from 'firebase/firebase';
 
 var socket;
 var dataLocal;
@@ -30,6 +30,8 @@ function setup()
     socket = io.connect('https://socket-sketch-app.herokuapp.com/');
     socket.on('mouse', newDrawing);
     socket.on('clear', clearCanvas);
+
+    FirebaseApp.initializeApp();
 
     //import { initializeApp } from "firebase/app";
 
