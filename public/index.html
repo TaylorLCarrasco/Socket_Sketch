@@ -5,9 +5,6 @@
         <script src="libraries/p5.js" type="text/javascript"></script>
         <script src="sketch.js" type="text/javascript"></script>
         <script src="/socket.io/socket.io.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
-        <script src="firebase-database"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-storage.js"></script>
     </head>
 
     <style>
@@ -31,15 +28,12 @@
 
     <body style="background-color:#E1EEF5">
         <button id="buttonClear" onclick="buttonClear();">CLEAR</button>
-        
-        <script src="firebase-database"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>  
         <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
         
         <script type="module">
-            //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
-            //import { initializeApp } from "https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js";
-            import { initializeApp } from "firebase/app";
             const firebaseConfig = {
                 apiKey: "AIzaSyC4cQmnCHXvkDLE6QISv4RSv59EDQnZiCc",
                 authDomain: "socket-sketch-7355b.firebaseapp.com",
@@ -50,7 +44,7 @@
                 appId: "1:1017385164549:web:4e28c02faecadefc77616c"
             };
 
-            const app = initializeApp(firebaseConfig);
+            firebase.initializeApp(firebaseConfig);
         </script>
     </body>
 </html>
