@@ -1,6 +1,7 @@
 
 var socket;
 var dataLocal;
+var database;
 
 
 dataLocal = 
@@ -41,7 +42,7 @@ function setup()
         appId: "1:1017385164549:web:4e28c02faecadefc77616c"
     };
     var firebase = initializeApp(config);
-    var database = firebase.database();
+    database = firebase.database();
     
 }
 
