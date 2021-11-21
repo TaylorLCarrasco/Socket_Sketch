@@ -1,4 +1,4 @@
-//import firebase from 'firebase/firebase';
+import firebase from 'firebase/app';
 
 var socket;
 var dataLocal;
