@@ -30,7 +30,6 @@ function setup()
     socket = io.connect('https://socket-sketch-app.herokuapp.com/');
     socket.on('mouse', newDrawing);
     socket.on('clear', clearCanvas);
-
     
     const config = {
         apiKey: "AIzaSyC4cQmnCHXvkDLE6QISv4RSv59EDQnZiCc",
@@ -55,9 +54,9 @@ function saveDrawing()
         drawing: drawing
     }
     var result = ref.push(data, dataSent);
-    console.log(result.key)
+    console.log(result.key);
     function dataSent(status){
-        console.log(status)
+        console.log(status);
     }
 }
 
