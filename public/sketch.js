@@ -40,7 +40,7 @@ function setup()
         messagingSenderId: "1017385164549",
         appId: "1:1017385164549:web:4e28c02faecadefc77616c"
     };
-    const firebase = initializeApp(firebaseConfig);
+    const firebase = initializeApp(config);
     database = firebase.database();
     
 }
