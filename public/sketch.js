@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+
 var socket;
 var dataLocal;
 
