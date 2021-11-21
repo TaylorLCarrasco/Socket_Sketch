@@ -1,7 +1,3 @@
-//import firebase from 'firebase/compat/app';
-//import 'firebase/compat/auth';
-//import 'firebase/compat/firestore';
-
 var socket;
 var dataLocal;
 
@@ -32,29 +28,6 @@ function setup()
     socket = io.connect('https://socket-sketch-app.herokuapp.com/');
     socket.on('mouse', newDrawing);
     socket.on('clear', clearCanvas);
-
-
-
-    //import { initializeApp } from 'firebase/app';
-
-
-    import firebase from "firebase/compat/app"
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyC4cQmnCHXvkDLE6QISv4RSv59EDQnZiCc",
-        authDomain: "socket-sketch-7355b.firebaseapp.com",
-        databaseURL: "https://socket-sketch-7355b-default-rtdb.firebaseio.com",
-        projectId: "socket-sketch-7355b",
-        storageBucket: "socket-sketch-7355b.appspot.com",
-        messagingSenderId: "1017385164549",
-        appId: "1:1017385164549:web:4e28c02faecadefc77616c"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-
-
-    //const app = initializeApp(firebaseConfig);
-    //const db = getFirestore(app);
 }
 
 function upload()
@@ -106,12 +79,7 @@ function upload()
 
 function saveDrawing()
 {
-    var ref = db.ref('drawings');
-    var data = {
-        name: "Dan",
-        drawing: "drawing"
-    }
-    ref.push(data);    
+    
 }
 
 function newDrawing(data)
@@ -143,8 +111,6 @@ function draw(position)
 
     dataLocal.x0 = position.x1;
     dataLocal.y0 = position.y1;
-
-    //saveDrawing();
 }
 
 function clearCanvas()
