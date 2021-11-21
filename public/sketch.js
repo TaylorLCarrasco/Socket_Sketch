@@ -51,13 +51,10 @@ function saveDrawing()
     var ref = database.ref('drawings');
     var data = {
         name: "Dan",
-        drawing: drawing
+        drawing: "drawing"
     }
     var result = ref.push(data, dataSent);
-    console.log(result.key);
-    function dataSent(status){
-        console.log(status);
-    }
+    
 }
 
 function newDrawing(data)
