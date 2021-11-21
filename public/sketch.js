@@ -80,7 +80,7 @@ function upload()
 
 function saveDrawing()
 {
-    var ref = database.ref('drawings');
+    var ref = db.ref('drawings');
     var data = {
         name: "Dan",
         drawing: "drawing"
@@ -118,7 +118,7 @@ function draw(position)
     dataLocal.x0 = position.x1;
     dataLocal.y0 = position.y1;
 
-    //saveDrawing();
+    saveDrawing();
 }
 
 function clearCanvas()
