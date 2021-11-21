@@ -1,4 +1,3 @@
-import firebase from 'firebase/compat/app';
 
 var socket;
 var dataLocal;
@@ -32,7 +31,7 @@ function setup()
     socket.on('clear', clearCanvas);
 
 
-    //import { initializeApp } from "firebase/app";
+    import { initializeApp } from 'firebase/app';
 
 
     //const firebaseConfig = {
