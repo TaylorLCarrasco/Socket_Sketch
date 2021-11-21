@@ -131,7 +131,7 @@ function draw(position)
     dataLocal.x0 = position.x1;
     dataLocal.y0 = position.y1;
 
-    saveDrawing();
+    //saveDrawing();
 }
 
 function clearCanvas()
