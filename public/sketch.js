@@ -41,7 +41,7 @@ function setup()
         messagingSenderId: "1017385164549",
         appId: "1:1017385164549:web:4e28c02faecadefc77616c"
     };
-    const app = initializeApp(firebaseConfig);
+    //const app = initializeApp(firebaseConfig);
     //const db = getFirestore(app);
 }
 
